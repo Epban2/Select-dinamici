@@ -22,7 +22,7 @@ function popolaProvince() {
     var regioneSelezionata = regioneSelect.value;
     provinciaSelect.innerHTML = "<option value='' disabled selected>Scegli provincia</option>"; //elimina ("") il placeholder quando viene richiamata la funzione
 
-    for (var provincia in dati[regioneSelezionata]) { //foreach, scorro l'oggetto
+    for (var provincia in dati[regioneSelezionata]) { //scorro l'oggetto
         var option = document.createElement("option");
         option.value = provincia;
         option.textContent = provincia;
@@ -35,17 +35,16 @@ function popolaProvince() {
 function popolaComuni() {
     var regioneSelezionata = regioneSelect.value;
     var provinciaSelezionata = provinciaSelect.value;
-    comuneSelect.innerHTML = "<option value='' disabled selected>Scegli comune</option>";
+    comuneSelect.innerHTML = "<option value='' disabled selected>Scegli comune</option>"; //stesso intento di prima
 
-    if (dati[regioneSelezionata] && dati[regioneSelezionata][provinciaSelezionata]) {
-        dati[regioneSelezionata][provinciaSelezionata].forEach(function (comune) {
-            var option = document.createElement("option");
+    if (dati[regioneSelezionata] && dati[regioneSelezionata][provinciaSelezionata]) { //controlla le key , prima se esiste la regione, e poi se esiste la provincia associata alla regione
+        dati[regioneSelezionata][provinciaSelezionata].forEach(function (comune) { //comune, grazie al foreach diventa il comune (key provincia)
+            var option = document.createElement("option"); //crea nuovo elemento 
             option.value = comune;
             option.textContent = comune;
-            comuneSelect.appendChild(option);
+            comuneSelect.appendChild(option); //append (viene mostrato nella tendina come opzione)
         });
     }
 }
 
-// Inizializza la selezione delle province all'avvio
 popolaProvince();
