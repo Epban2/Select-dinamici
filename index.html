@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regioni La Rocca</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h1>Regione, provincia e comune</h1>
+
+        <form style="padding-top: 20px;">
+
+            <label for="regione">Regione:</label>
+            <select id="regione" onchange="popolaProvince()">
+                <!--onchange chiama la funzione quando viene modificato il valore di un select (richiama popola provincie)-->
+                <option value="Void">Selezionare Regione</option>
+                <option value="Emiliaromagna">Emilia Romagna</option>
+                <option value="Lombardia">Lombardia</option>
+                <option value="Sicilia">Sicilia</option>
+
+            </select>
+            <label for="provincia">Provincia:</label>
+            <select id="provincia" onchange="popolaComuni()">
+            </select>
+
+            <label for="comune">Comune:</label>
+            <select id="comune">
+            </select>
+        </form>
+
+        <script src="script.js"></script>
+    </div>
+</body>
+
+</html>
